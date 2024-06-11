@@ -5,6 +5,7 @@ Console.WriteLine("\n\nLet's Get Start!!! >>>>>>>>>>>>\n");
 
 //IntoMethod();
 //TypeConversion();
+DateFormat();
 
 static void IntoMethod()
 {
@@ -104,6 +105,20 @@ static void TypeConversion()
 
 }
 
+static void DateFormat()
+{
+    DateTime dt = DateTime.Now;
 
+    Console.WriteLine("{0}", dt); //as it is
+    Console.WriteLine("{0:d}", dt); // short date
+    Console.WriteLine("{0:D}", dt); // long date
+    Console.WriteLine("{0:f}", dt); // full date short time
+    Console.WriteLine("{0:F}", dt); // full date and time
+    Console.WriteLine("{0:g}", dt); // general date and time
+    Console.WriteLine("{0:ddd}", dt); // abrivation of day of a week
+    Console.WriteLine("{0:dddd}", dt); // day of a week
+    Console.ReadLine();
+
+}
 
 
