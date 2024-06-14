@@ -4,8 +4,9 @@ using System;
 Console.WriteLine("\n\nLet's Get Start!!! >>>>>>>>>>>>\n");
 
 //IntoMethod();
-//TypeConversion();
-DateFormat();
+TypeConversion();
+//DateFormat();
+//operatorator();
 
 static void IntoMethod()
 {
@@ -90,7 +91,7 @@ static void TypeConversion()
     Console.WriteLine($"\nfloatVal1: {floatVal11}");
     Console.WriteLine($"intVal1: {intVal11}");
 
-    // using .Parse() accept only the string values
+    // using .Parse() accept only the string values and value should be numerators else throw error
     Console.WriteLine($"\nusing .Parse() .");
 
     string stringNumericVal = "897";
@@ -103,6 +104,16 @@ static void TypeConversion()
 
     Console.WriteLine($"stringNumericFloatVal: {stringNumericFloatVal}");
 
+    // using .TryParse() accept only the string values and value should be numerators else not throw error.
+
+    string numVal = "643";
+    string numVal2 = "434";
+
+    
+    int.TryParse(numVal, out int a);
+    int.TryParse(numVal2, out int b);
+
+    Console.WriteLine(a+b);
 }
 
 static void DateFormat()
@@ -121,4 +132,60 @@ static void DateFormat()
 
 }
 
+static void operatorator()
+{
+    //Assignment operator
+
+    string name = "Ramesh Aravind";
+
+    int age = 54;
+
+    int weight = 78;
+
+    //Arithmetic operator
+    int addition = age + weight;
+    int subtraction = weight - age;
+    int devision = weight / age;
+    int multiply = weight * age;
+    int divident = weight % age;
+
+    Console.WriteLine($"divident: {divident}");
+
+    //comparision operator and conditional operator
+    if(age<weight || age>weight || age <= weight ||  age >= weight && age != weight && age == weight)
+    {
+        Console.WriteLine("comparison operators: == < <= > >= ! != ");
+        Console.WriteLine("conditional operators: && ||");
+    }
+
+    //ternary operator
+    int result = age > weight ? age/weight : weight/age;
+
+    Console.WriteLine($"ternary result:{result}");
+
+
+
+    //nullable 
+    int? nullValue = null;
+    Console.WriteLine(nullValue); // will not generate any compiler error.
+
+
+    // null coalescing operator
+
+    int? tickOnSele = 100;
+    int availableTickets;
+
+    availableTickets = tickOnSele ?? 0;
+
+    Console.WriteLine(availableTickets);
+
+    int? tickOnSele1 = null;
+    int availableTickets1;
+
+    availableTickets1 = tickOnSele1 ?? 0;
+
+    Console.WriteLine(availableTickets1);
+
+
+}
 
