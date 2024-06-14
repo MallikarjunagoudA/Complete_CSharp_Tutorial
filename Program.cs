@@ -4,9 +4,10 @@ using System;
 Console.WriteLine("\n\nLet's Get Start!!! >>>>>>>>>>>>\n");
 
 //IntoMethod();
-TypeConversion();
+//TypeConversion();
 //DateFormat();
 //operatorator();
+ArrayUsage();
 
 static void IntoMethod()
 {
@@ -187,5 +188,26 @@ static void operatorator()
     Console.WriteLine(availableTickets1);
 
 
+
 }
 
+static void ArrayUsage()
+{
+    //advantages:
+    // stongly typed.
+
+    //disadvantages
+    // can change the size of the array dynamically
+    // fetch the values on indeces might get tidy thing
+
+    //array initialization
+    int[] intArray = new int[5];
+
+    //array value assignment
+    intArray[0] = 34;
+    intArray[1] = 54;
+    intArray[3] = 45;
+
+    //display
+    Console.WriteLine(intArray[3]);
+}
