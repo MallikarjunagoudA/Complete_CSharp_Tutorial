@@ -7,7 +7,13 @@ Console.WriteLine("\n\nLet's Get Start!!! >>>>>>>>>>>>\n");
 //TypeConversion();
 //DateFormat();
 //operatorator();
-ArrayUsage();
+//ArrayUsage();
+//ConditionStatements();
+//SwitchExample();
+//whileLoop();
+//DowhileLoop();
+//ForLoop();
+ForEachLoop();
 
 static void IntoMethod()
 {
@@ -211,3 +217,160 @@ static void ArrayUsage()
     //display
     Console.WriteLine(intArray[3]);
 }
+
+static void ConditionStatements()
+{
+    int age = int.Parse(Console.ReadLine());
+
+    // if 
+
+    if(age >0 && age < 6)
+    {
+        Console.WriteLine("children");
+    } 
+
+    // this will check both the conditions
+    if (age > 0 & age < 6)
+    {
+        Console.WriteLine("children");
+    }
+
+    if (age > 5 ||  age < 18)
+    {
+        Console.WriteLine("minors");
+    }
+
+    // this will check both the conditions
+    if (age > 5 | age < 18)
+    {
+        Console.WriteLine("minors");
+    }
+
+    //if else
+    if(age < 18)
+    {
+        Console.WriteLine("not eligible for voting");
+    }
+    else if(age == 18 && age >18)
+    {
+        Console.WriteLine("eligible for voting, but elections are not held yet hahhahahaha");
+    }
+    {
+        Console.WriteLine("eligible for voting");
+    }
+
+    switch(age)
+    {
+        case 4: 
+            Console.WriteLine("minor");
+            break;      
+        case 18: 
+            Console.WriteLine("major");
+            break;
+        case 25: 
+            Console.WriteLine("adult");
+            break;
+        default: Console.WriteLine("default");
+            break;
+    }
+
+
+}
+
+static void SwitchExample()
+{ 
+    int priceOfTea = 0;
+
+Start:
+    Console.WriteLine("please select 1-small 2-medium 3-large ");
+    int chooseValue = int.Parse(Console.ReadLine());
+    switch(chooseValue)
+    {
+        case 1: priceOfTea++; break;
+        case 2: priceOfTea += 2; break;
+        case 3: priceOfTea += 3; break;
+        default:
+            Console.WriteLine("invlaid entry"); break;
+    }
+
+Decide:
+    Console.WriteLine("do you want one more time tea?");
+    string yesOrNo = Console.ReadLine();
+
+    switch (yesOrNo.ToLower())
+    {
+        case "yes": goto Start;
+        case "no": break;
+        default:
+            Console.WriteLine("invalid entry"); goto Decide;
+    }
+
+    Console.WriteLine("thank you for shopping with us");
+    Console.WriteLine("you total bill is :{0}", priceOfTea);
+
+
+}
+
+static void whileLoop()
+{
+    int startNum = 1;
+    int target = int.Parse(Console.ReadLine());
+   
+    while (startNum < target)
+    {
+        Console.WriteLine(startNum);
+        startNum += 2;
+        startNum -= 1;
+        startNum *= 2;
+        startNum /= 2;
+        
+    }
+}
+
+static void DowhileLoop()
+{
+    Start:
+    int startNum = 1;
+    Console.WriteLine("please enter the target number");
+    int target = int.Parse(Console.ReadLine());
+    string chioce;
+
+    while (startNum < target)
+    {
+        Console.WriteLine(startNum);
+        startNum += 2;
+        startNum -= 1;
+        startNum *= 2;
+        startNum /= 2;
+
+    }
+    do
+    {
+        decide:
+        Console.WriteLine("do you want to continue: Yes or No");
+        chioce = Console.ReadLine().ToUpper();
+        switch (chioce)
+        {
+            case "YES": goto Start;
+            case "NO": return;
+            default: Console.WriteLine("invalid choice"); goto decide;
+        }
+
+    }while (chioce == "YES" || chioce == "NO");
+
+}
+
+static void ForLoop()
+{
+    int[] arr = new int[5] { 1,2,3,4,5 };
+
+    for(int a=0; a<arr.Length; a++) { Console.WriteLine(arr[a]); }
+}
+
+static void ForEachLoop()
+{
+    int[] arr = new int[5] { 1, 2, 3, 4, 5 };
+
+    foreach(int a in arr) { Console.WriteLine(a); }
+}
+
