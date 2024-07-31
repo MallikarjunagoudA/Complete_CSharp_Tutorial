@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using CsharpIntro;
 using System;
 
 Console.WriteLine("\n\nLet's Get Start!!! >>>>>>>>>>>>\n");
@@ -13,7 +14,42 @@ Console.WriteLine("\n\nLet's Get Start!!! >>>>>>>>>>>>\n");
 //whileLoop();
 //DowhileLoop();
 //ForLoop();
-ForEachLoop();
+//ForEachLoop();
+//JumpStatement(); // break, continue, goto, return
+
+#region <<paramter types>>
+//Parameter types
+Console.WriteLine("Parameter types\n");
+ParameterTypes a = new ParameterTypes();
+
+//value types
+Console.WriteLine("\nvalue types\n");
+int c = 2;
+a.Calculate(c);
+Console.WriteLine($"value type 'c' is, {c}");
+
+//refernce types
+Console.WriteLine("\nrefernce types\n");
+int d = 3;
+Console.WriteLine($"d before is {d}");
+a.CalculateRef(ref d);
+Console.WriteLine($"d after is {d}");
+
+//Out paramter
+Console.WriteLine("\nOut paramter\n");
+int sumIs = 0;
+int ProductIs = 0;
+a.CalculateOut(10, 20, out sumIs,out ProductIs);
+Console.WriteLine($"sum is {sumIs}");
+Console.WriteLine($"product is {ProductIs}");
+
+//parameter array
+Console.WriteLine("\nparameter array\n");
+int[] arrayIs =new int[] { 1,2,3,4};
+a.ParameterArray(1);
+a.ParameterArray(5,arrayIs);
+a.ParameterArray(2, 9, 8, 7, 6, 5);
+#endregion
 
 static void IntoMethod()
 {
@@ -374,3 +410,62 @@ static void ForEachLoop()
     foreach(int a in arr) { Console.WriteLine(a); }
 }
 
+static void JumpStatement()
+{
+    Console.WriteLine("Enter the size : 1-small 2-medium 3-large 4-extra large");
+    int size = int.Parse(Console.ReadLine());
+
+    start:
+    if(size > 4)
+    {
+        Console.WriteLine("invaid entry");
+    }
+    else
+    {
+        Console.WriteLine("the stock is not availalbe");
+    }
+    switch (size)
+    {
+        case 1:
+            Console.WriteLine("Enter for whom: 1-children 2-ladies");
+            int whomItFor = int.Parse(Console.ReadLine());
+
+            switch (whomItFor) {
+                case 1:
+                    Console.WriteLine("Enter for color you are looking for: 1-blue 2-red, 3-white,4-black, 5-green");
+                    int color = int.Parse(Console.ReadLine());
+                    switch (color)
+                    {
+                        case 1: Console.WriteLine("you choosed small size for childen with color blue T shirt"); break;
+                        case 2: Console.WriteLine("you choosed small size for childen with color red T shirt"); break;
+                        case 3: Console.WriteLine("you choosed small size for childen with color white T shirt"); break;
+                        case 4: Console.WriteLine("you choosed small size for childen with color black T shirt"); break;
+                        case 5: Console.WriteLine("you choosed small size for childen with color green T shirt"); break;
+                    } break;
+                case 2:
+                    Console.WriteLine("Enter for color you are looking for: 1-blue 2-red, 3-white,4-black, 5-green");
+                    int color1 = int.Parse(Console.ReadLine());
+                    switch (color1)
+                    {
+                        case 1: Console.WriteLine("you choosed small size for ladies blue T shirt"); break;
+                        case 2: Console.WriteLine("you choosed small size for ladies red T shirt"); break;
+                        case 3: Console.WriteLine("you choosed small size for ladies white T shirt"); break;
+                        case 4: Console.WriteLine("you choosed small size for ladies black T shirt"); break;
+                        case 5: Console.WriteLine("you choosed small size for ladies green T shirt"); break;
+                    }
+                    break;
+            } break;
+        case 2: break;
+        case 3: goto start;
+        case 4: return;
+    }
+
+    for(int i = 0; i<size; i++)
+    {
+        if (size > 4)
+        {
+            continue;
+        }
+        Console.WriteLine("size are avilable");
+    }
+}
