@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CsharpIntro;
-using System;
 
 Console.WriteLine("\n\nLet's Get Start!!! >>>>>>>>>>>>\n");
 
@@ -18,38 +17,86 @@ Console.WriteLine("\n\nLet's Get Start!!! >>>>>>>>>>>>\n");
 //JumpStatement(); // break, continue, goto, return
 
 #region <<paramter types>>
-//Parameter types
-Console.WriteLine("Parameter types\n");
-ParameterTypes a = new ParameterTypes();
+////Parameter types
+//Console.WriteLine("Parameter types\n");
+//ParameterTypes a = new ParameterTypes();
 
-//value types
-Console.WriteLine("\nvalue types\n");
-int c = 2;
-a.Calculate(c);
-Console.WriteLine($"value type 'c' is, {c}");
+////value types
+//Console.WriteLine("\nvalue types\n");
+//int c = 2;
+//a.Calculate(c);
+//Console.WriteLine($"value type 'c' is, {c}");
 
-//refernce types
-Console.WriteLine("\nrefernce types\n");
-int d = 3;
-Console.WriteLine($"d before is {d}");
-a.CalculateRef(ref d);
-Console.WriteLine($"d after is {d}");
+////refernce types
+//Console.WriteLine("\nrefernce types\n");
+//int d = 3;
+//Console.WriteLine($"d before is {d}");
+//a.CalculateRef(ref d);
+//Console.WriteLine($"d after is {d}");
 
-//Out paramter
-Console.WriteLine("\nOut paramter\n");
-int sumIs = 0;
-int ProductIs = 0;
-a.CalculateOut(10, 20, out sumIs,out ProductIs);
-Console.WriteLine($"sum is {sumIs}");
-Console.WriteLine($"product is {ProductIs}");
+////Out paramter
+//Console.WriteLine("\nOut paramter\n");
+//int sumIs = 0;
+//int ProductIs = 0;
+//a.CalculateOut(10, 20, out sumIs,out ProductIs);
+//Console.WriteLine($"sum is {sumIs}");
+//Console.WriteLine($"product is {ProductIs}");
 
-//parameter array
-Console.WriteLine("\nparameter array\n");
-int[] arrayIs =new int[] { 1,2,3,4};
-a.ParameterArray(1);
-a.ParameterArray(5,arrayIs);
-a.ParameterArray(2, 9, 8, 7, 6, 5);
+////parameter array
+//Console.WriteLine("\nparameter array\n");
+//int[] arrayIs =new int[] { 1,2,3,4};
+//a.ParameterArray(1);
+//a.ParameterArray(5,arrayIs);
+//a.ParameterArray(2, 9, 8, 7, 6, 5);
+
 #endregion
+
+#region << static and instance class >>
+
+StaticClass sc = new StaticClass(5);
+float area1 = sc.CalculateArea();
+Console.WriteLine("area 1 is {0}", area1);
+
+StaticClass sc1 = new StaticClass(6);
+float area2 = sc1.CalculateArea();
+Console.WriteLine( "area 2 is {0}", area2);
+
+#endregion
+
+
+#region << inheritance >>
+
+childClassFullTimeEmp fte = new childClassFullTimeEmp();
+fte.name = "full time employee";
+fte.email = "fte.com";
+fte.age = 25;
+fte.EmployeeDetails();
+
+childClassPartTimeEmp pte = new childClassPartTimeEmp();
+pte.name = "full time employee";
+pte.email = "fte.com";
+pte.age = 25;
+pte.EmployeeDetails();
+
+#endregion
+
+Console.WriteLine("\n");
+
+#region << method hiding >>
+
+MethodHiding parentClass = new MethodHiding();
+parentClass.show(); // calls the parent class method.
+
+ChildClass cc = new ChildClass();
+cc.show(); //calls the child class method.
+((MethodHiding)cc).show(); // calls the parent class method.
+
+
+MethodHiding parentClassObj = new ChildClass();
+parentClassObj.show(); // calls the parent class method.
+
+#endregion
+
 
 static void IntoMethod()
 {
