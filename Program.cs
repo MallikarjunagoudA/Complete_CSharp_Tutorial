@@ -80,8 +80,22 @@ pte.EmployeeDetails();
 
 #endregion
 
+Console.WriteLine("\n");
+
+#region << method hiding >>
+
+MethodHiding parentClass = new MethodHiding();
+parentClass.show(); // calls the parent class method.
+
+ChildClass cc = new ChildClass();
+cc.show(); //calls the child class method.
+((MethodHiding)cc).show(); // calls the parent class method.
 
 
+MethodHiding parentClassObj = new ChildClass();
+parentClassObj.show(); // calls the parent class method.
+
+#endregion
 
 
 static void IntoMethod()
