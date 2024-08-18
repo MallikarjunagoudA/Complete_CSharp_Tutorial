@@ -97,6 +97,26 @@ parentClassObj.show(); // calls the parent class method.
 
 #endregion
 
+Console.WriteLine("\n");
+
+#region << polimorphism override >>
+
+Polymorphism p = new Polymorphism();
+p.show();
+
+Polymorphism a = new ChildClassA();
+a.show();
+
+ChildClassA aa = new ChildClassA();
+aa.show();
+
+Polymorphism b = new ChildClassB();
+b.show();
+
+ChildClassB bb = new ChildClassB();
+bb.show();
+#endregion
+
 
 static void IntoMethod()
 {
